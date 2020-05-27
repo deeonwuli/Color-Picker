@@ -3,9 +3,64 @@
     <head>
         <title>Color Picker</title>
         <meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+        <link rel="stylesheet" href="css/bootstrap.css">
+        <link rel="stylesheet" href="css/bootstrap-responsive.css">
+        <script src="https://kit.fontawesome.com/71f145e8c9.js" crossorigin="anonymous"></script>
     </head>
     <body>
-        <input type="file" accept="image/*">
+        <!--    Navigation bar  -->
+        <nav class="navbar fixed-top navbar-expand-md navbar-light bg-light">
+            <div class="container">
+                <a class="navbar-brand" href="#">Color Picker</a> 
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation"> 
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarCollapse">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="#">
+                                Home
+                                <span class="sr-only">(current)</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">
+                                About
+                            </a>
+                        </li>
+                    </ul>
+
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="https://twitter.com/deeonwuli" target="_blank">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="https://github.com/deeonwuli/Color-Picker" target="_blank">
+                                <i class="fab fa-github"></i> 
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <div class="jumbotron">
+            <h1 class="display-1">
+                Find your Color
+            </h1>
+            <p class="lead">
+                Take a picture
+            </p>
+            <input type="file" accept="image/*">
+        </div>
+        <footer class="container mt-4">
+            <div class="row">
+                <div class="col">
+                    <p class="text-center">Made with love</p>
+                </div>
+            </div>
+        </footer>
     </body>
 </html>
