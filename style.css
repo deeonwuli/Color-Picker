@@ -25,6 +25,12 @@ html,
 body {
   height: 100%;
   background-color: #333;
+  background: linear-gradient(135deg, #ff0000, #ffa500, #ffff00, #00ff7f, #0000ff, #4b0082, #ee82ee);
+  background-size: 1400% 1400%;
+
+  -webkit-animation: AnimationName 40s ease infinite;
+  -moz-animation: AnimationName 40s ease infinite;
+  animation: AnimationName 40s ease infinite;
 }
 
 body {
@@ -35,10 +41,39 @@ body {
   box-shadow: inset 0 0 5rem rgba(0, 0, 0, .5);
 }
 
+@-webkit-keyframes AnimationName {
+  0%{background-position:0% 25%}
+  50%{background-position:100% 76%}
+  100%{background-position:0% 25%}
+}
+@-moz-keyframes AnimationName {
+  0%{background-position:0% 25%}
+  50%{background-position:100% 76%}
+  100%{background-position:0% 25%}
+}
+@keyframes AnimationName {
+  0%{background-position:0% 25%}
+  50%{background-position:100% 76%}
+  100%{background-position:0% 25%}
+}
+
 .cover-container {
   max-width: 42em;
 }
 
+main .cover-heading {
+  font-family: 'Gloria Hallelujah', cursive;
+  font-size: 3rem;
+}
+
+main .lead {
+  font-family: 'Roboto', sans-serif;
+  font-size: 1.2rem;
+}
+
+input[type='file'] {
+  display: none;
+}
 
 /*
  * Header
@@ -81,7 +116,6 @@ body {
     float: right;
   }
 }
-
 
 /*
  * Cover
