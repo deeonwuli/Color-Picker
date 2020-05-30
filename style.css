@@ -61,13 +61,13 @@ body {
 }
 
 main .cover-heading {
-  font-family: 'Gloria Hallelujah', cursive;
+  font-family: 'Roboto', sans-serif;
   font-size: 3rem;
   text-shadow: 2px 2px #5a5a5a;
 }
 
 main .lead {
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Open Sans', sans-serif;
   font-size: 1.2rem;
   text-shadow: 2px 2px #5a5a5a;
 }
