@@ -15,11 +15,6 @@ a:hover {
   border: .05rem solid #fff;
 }
 
-
-/*
- * Base structure
- */
-
 html,
 body {
   height: 100%;
@@ -81,6 +76,10 @@ footer a {
   text-decoration: underline;
   text-decoration-color: white;
   text-decoration-style: dotted;
+}
+
+footer a:hover, footer a:focus {
+  color: #333;
 }
 
 input[type='file'] {
