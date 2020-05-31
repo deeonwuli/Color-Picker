@@ -64,12 +64,23 @@ main .cover-heading {
   font-family: 'Roboto', sans-serif;
   font-size: 3rem;
   text-shadow: 2px 2px #5a5a5a;
+  animation: fadeInUp;
+  animation-duration: 3s;
 }
 
 main .lead {
   font-family: 'Open Sans', sans-serif;
   font-size: 1.2rem;
   text-shadow: 2px 2px #5a5a5a;
+  font-weight: bold;
+  animation: fadeInUp;
+  animation-duration: 4s;
+}
+
+footer a {
+  text-decoration: underline;
+  text-decoration-color: white;
+  text-decoration-style: dotted;
 }
 
 input[type='file'] {
@@ -80,9 +91,32 @@ main .upload_button {
   font-size: 2rem;
   text-shadow: 2px 2px #5a5a5a;
   animation: bounce;
-  animation-duration: 2.5s;
+  animation-delay: 1s;
+  animation-duration: 3s;
   animation-iteration-count: infinite;
-  animation-delay: 0.9s;
+}
+
+footer ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+footer li {
+  display: inline-block;
+  vertical-align: middle;
+  padding: 0 5px;
+}
+
+footer li:hover, footer li:focus{
+  color: #333;
+}
+
+p .heart {
+  color: red;
+  animation: heartBeat;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
 }
 
 /*
