@@ -14,7 +14,6 @@
         <link rel="manifest" href="favicon/site.webmanifest">
         <link href="style.css" rel="stylesheet">
         <script src="script.js" type="text/javascript"></script> 
-        <script type="text/javascript" src="webcamjs/webcam.min.js"></script>
         <style>
             .bd-placeholder-img {
                 font-size: 1.125rem;
@@ -29,34 +28,37 @@
                     font-size: 3.5rem;
                 }
             }
-            #my_camera {
-                width: 320px;
-                height: 240px;
-                border: 1px solid black;
-                display: none;
-            }
         </style>
     </head>
 
     <body class="text-center">
-        <div class="start cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+        <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
             <header class="masthead mb-auto">
                 <div class="inner">
                     <h3 class="masthead-brand"><img src="logo.png" width=10% height=12%> Color Picker</h3>
                     <nav class="nav nav-masthead justify-content-center">
                         <a class="nav-link active" href="#">Start</a>
-                        <a class="nav-link" href="#">Process</a>                            <a class="nav-link" href="#">Finish</a>
+                        <a class="nav-link" href="#">Process</a>
+                        <a class="nav-link" href="#">Finish</a>
                     </nav>
+
                 </div>
             </header>
-    
-            <main role="main" class="inner-cover">
+
+            <main role="main" class="start inner-cover">
                 <h1 class="cover-heading"><strong>Find your colour.</strong></h1>
                 <p class="lead">Take a picture</p>
-                <div class="btn btn-default">
-                    <button class="upload_button" type="submit" onClick="takeSnapshot()"><i class="fas fa-camera"></i></button>
-                </div>
+                <label class="upload_button">
+                    <i class="fas fa-camera"></i>
+                    <input type="file" accept="image/*" id="pic-upload" onchange="my(event)" capture>
+                </label>
             </main>
+
+            <main role="main" class="process inner-cover" style="display: none;">
+                <h1 class="cover-heading"><strong>Find your colour.</strong></h1>
+                <img id="output">
+            </main>
+
             <footer class="mastfoor mt-auto">
                 <ul>
                     <li>
@@ -67,34 +69,23 @@
                     </li>
                 </ul>
                 <div class="inner">
-                    <p>Made with <i class="heart fas fa-heart"></i> by <a href="http://chukwudumebi.me" target="_blank">Chukwudumebi</a> © 2020</p>
+                    <p>Made with <i class="heart fas fa-heart"></i> by <a href="http://chukwudumebi.me" target="blank">Chukwudumebi</a> © 2020</p>
                 </div>
             </footer>
         </div>
 
-        <div class="process cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
-            <p>Hi</p>
-            <div id="my_camera"></div>
-            <div id="results"></div>
-        </div>
-
-        <input type="text" id="mama">
-
-        <script language='Javascript'>
-            Webcam.set({
-                width: 320,
-                height: 240,
-                image_format: 'jpeg',
-                jpeg_quality: 90
-            });
-           Webcam.attach('#my_camera');
-        </script>
-
-        <script language='Javascript'>            
-            function takeSnapshot () {
-                Webcam.snap(function (data_uri) {
-                    document.getElementById('results').innerHTML = '<img src="' + data_uri + '"/>'
-                })
+        <script>
+            function my(event) {
+                let picUpload = document.getElementById("pic-upload").value
+                console.log(picUpload)
+                let input = event.target
+                let reader = new FileReader()
+                reader.onload = function () {
+                    let dataURL = reader.result
+                    let output = document.getElementById('output')
+                    output.src = dataURL
+                }
+                reader.readAsDataURL(input.files[0])
             }
         </script>
     </body>

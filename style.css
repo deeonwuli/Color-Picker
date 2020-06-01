@@ -88,10 +88,6 @@ input[type='file'] {
 
 main .upload_button {
   font-size: 2rem;
-  color: #fff;
-  border: none;
-  text-decoration: none;
-  background: none;
   text-shadow: 2px 2px #5a5a5a;
   animation: bounce;
   animation-delay: 1s;
@@ -185,9 +181,4 @@ p .heart {
  */
 .mastfoot {
   color: rgba(255, 255, 255, .5);
-}
-
-.process {
-  color: #0000ff;
-  display: none;
 }
