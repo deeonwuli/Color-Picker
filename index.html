@@ -28,11 +28,14 @@
                     font-size: 3.5rem;
                 }
             }
+            #process {
+                display: none;
+            }
         </style>
     </head>
 
     <body class="text-center">
-        <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+        <div id="start" class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
             <header class="masthead mb-auto">
                 <div class="inner">
                     <h3 class="masthead-brand"><img src="logo.png" width=10% height=12%> Color Picker</h3>
@@ -45,7 +48,7 @@
                 </div>
             </header>
 
-            <main role="main" class="start inner-cover">
+            <main role="main" class="inner-cover">
                 <h1 class="cover-heading"><strong>Find your colour.</strong></h1>
                 <p class="lead">Take a picture</p>
                 <label class="upload_button">
@@ -54,8 +57,36 @@
                 </label>
             </main>
 
-            <main role="main" class="process inner-cover" style="display: none;">
-                <h1 class="cover-heading"><strong>Find your colour.</strong></h1>
+            <footer class="mastfoor mt-auto">
+                <ul>
+                    <li>
+                        <a href="https://twitter.com/deeonwuli" target="_blank"><i class="fa fa-twitter"></i></a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/deeonwuli/Color-Picker" target="_blank"><i class="fa fa-github"></i></a>
+                    </li>
+                </ul>
+                <div class="inner">
+                    <p>Made with <i class="heart fas fa-heart"></i> by <a href="http://chukwudumebi.me" target="blank">Chukwudumebi</a> © 2020</p>
+                </div>
+            </footer>
+        </div>
+
+        <div id="process" class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+            <header class="masthead mb-auto">
+                <div class="inner">
+                    <h3 class="masthead-brand"><img src="logo.png" width=10% height=12%> Color Picker</h3>
+                    <nav class="nav nav-masthead justify-content-center">
+                        <a class="nav-link" href="#">Start</a>
+                        <a class="nav-link active" href="#">Process</a>
+                        <a class="nav-link" href="#">Finish</a>
+                    </nav>
+
+                </div>
+            </header>
+
+            <main role="main" class="inner-cover">
+                <p class="lead">Tap the picture to find your colour.</p>
                 <img id="output">
             </main>
 
@@ -86,6 +117,16 @@
                     output.src = dataURL
                 }
                 reader.readAsDataURL(input.files[0])
+
+                var x = document.getElementById('start')
+                var y = document.getElementById('process')
+                if (x.style.display === 'none') {
+                    x.style.display = 'flex'
+                    y.style.display = 'none'
+                } else {
+                    y.style.display = 'flex'
+                    x.style.display = 'none'
+                }
             }
         </script>
     </body>
