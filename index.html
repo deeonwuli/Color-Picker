@@ -45,16 +45,20 @@
                 </div>
             </header>
 
-            <main role="main" class="inner-cover">
+            <main role="main" class="start inner-cover">
                 <h1 class="cover-heading"><strong>Find your colour.</strong></h1>
                 <p class="lead">Take a picture</p>
                 <label class="upload_button">
                     <i class="fas fa-camera"></i>
-                    <input type="file" accept="image/*" capture>
+                    <input type="file" accept="image/*" id="pic-upload" onchange="my(event)" capture>
                 </label>
             </main>
 
-            
+            <main role="main" class="process inner-cover" style="display: none;">
+                <h1 class="cover-heading"><strong>Find your colour.</strong></h1>
+                <img id="output">
+            </main>
+
             <footer class="mastfoor mt-auto">
                 <ul>
                     <li>
@@ -65,9 +69,24 @@
                     </li>
                 </ul>
                 <div class="inner">
-                    <p>Made with <i class="heart fas fa-heart"></i> by <a href="http://chukwudumebi.me" target="_blank">Chukwudumebi</a> © 2020</p>
+                    <p>Made with <i class="heart fas fa-heart"></i> by <a href="http://chukwudumebi.me" target="blank">Chukwudumebi</a> © 2020</p>
                 </div>
             </footer>
         </div>
+
+        <script>
+            function my(event) {
+                let picUpload = document.getElementById("pic-upload").value
+                console.log(picUpload)
+                let input = event.target
+                let reader = new FileReader()
+                reader.onload = function () {
+                    let dataURL = reader.result
+                    let output = document.getElementById('output')
+                    output.src = dataURL
+                }
+                reader.readAsDataURL(input.files[0])
+            }
+        </script>
     </body>
 </html>
