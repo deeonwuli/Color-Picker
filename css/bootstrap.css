@@ -6953,7 +6953,7 @@ button.bg-dark:focus {
 }
 
 .d-block {
-  display: block !important;
+  display: block;
 }
 
 .d-table {
@@ -7021,7 +7021,7 @@ button.bg-dark:focus {
     display: inline-block !important;
   }
   .d-md-block {
-    display: block !important;
+    display: block;
   }
   .d-md-table {
     display: table !important;
