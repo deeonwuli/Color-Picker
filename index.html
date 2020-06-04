@@ -13,6 +13,7 @@
         <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
         <link rel="manifest" href="favicon/site.webmanifest">
         <link href="style.css" rel="stylesheet">
+        <script src="https://unpkg.com/konva@6.0.0/konva.min.js"></script>
         <style>
             .bd-placeholder-img {
                 font-size: 1.125rem;
@@ -82,7 +83,7 @@
                 <div class="inner">
                     <h3 class="masthead-brand"><img src="logo.png" width=10% height=12%> Color Picker</h3>
                     <nav class="nav nav-masthead justify-content-center">
-                        <a class="nav-link" href="#">Start</a>
+                        <a class="nav-link" href="#start" onclick="visibility()">Start</a>
                         <a class="nav-link active" href="#">Process</a>
                         <a class="nav-link" href="#">Finish</a>
                     </nav>
@@ -153,22 +154,29 @@
             let canvas = document.getElementById('theCanvas')
             let context = canvas.getContext('2d')
 
+            function rgbToHex (r, g, b) {
+                if (r > 255 || g > 255 || b > 255)
+                    throw "Invalid color component";
+                return ((r << 16) | (g << 8) | b).toString(16)
+            }
+
             canvas.addEventListener ('click', event => {
                 let bound = canvas.getBoundingClientRect()
                 let scaleX = canvas.width / bound.width
                 let scaleY = canvas.height / bound.height
                 let x = (event.clientX - bound.left) * scaleX
                 let y = (event.clientY - bound.top) * scaleY
+                let picColour = context.getImageData(x, y, 1, 1).data
+                let colour= '#' + ('000000' + rgbToHex(picColour[0], picColour[1], picColour[2])).slice(-6)
+                console.log(colour)
                 console.log(x, y)
                 context.beginPath()
-                context.arc(x, y, 20, 0, 2 * Math.PI)
-                context.fillStyle = '#fff'
-                context.fill()
-                context.lineWidth = 3
-                context.strokeStyle = "#000"
+                context.arc(x, y, 70, 0, 2 * Math.PI)
+                context.lineWidth = 10
+                context.strokeStyle = colour
                 context.stroke()
                 // context.clearRect(x-20, y-20, 40, 40)
-            })
+            });
         </script>
     </body>
 </html>
