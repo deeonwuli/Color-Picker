@@ -177,9 +177,9 @@
                 context.lineWidth = 100
                 context.strokeStyle = colour
                 context.stroke()
-                let n_match  = ntc.name(colour);
-                let n_rgb        = n_match[0]; // This is the RGB value of the closest matching color
-                let n_name       = n_match[1]; // This is the text string for the name of the match
+                let n_match = ntc.name(colour);
+                let n_rgb = n_match[0]; // This is the RGB value of the closest matching color
+                let n_name = n_match[1]; // This is the text string for the name of the match
                 let n_exactmatch = n_match[2]; // True if exact color match, False if close-match
                 let name = document.getElementById('colourName').innerHTML = n_name
                 // context.clearRect(x-20, y-20, 40, 40)
