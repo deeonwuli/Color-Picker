@@ -14,6 +14,7 @@
         <link rel="manifest" href="favicon/site.webmanifest">
         <link href="style.css" rel="stylesheet">
         <script src="https://unpkg.com/konva@6.0.0/konva.min.js"></script>
+        <script type="text/javascript" src="ntc.js"></script>
         <style>
             .bd-placeholder-img {
                 font-size: 1.125rem;
@@ -95,6 +96,7 @@
                 <p class="lead">Tap anywhere on your image to find your colour.</p>    
                 <canvas id="theCanvas" class="img-fluid rounded mx-auto d-block"></canvas>
                 <img id="output" class="img-fluid rounded mx-auto d-block">
+                <p class="lead" id="colourName"></p>
             </main>
 
             <footer class="mastfoor mt-auto">
@@ -175,6 +177,11 @@
                 context.lineWidth = 100
                 context.strokeStyle = colour
                 context.stroke()
+                let n_match  = ntc.name(colour);
+                let n_rgb        = n_match[0]; // This is the RGB value of the closest matching color
+                let n_name       = n_match[1]; // This is the text string for the name of the match
+                let n_exactmatch = n_match[2]; // True if exact color match, False if close-match
+                let name = document.getElementById('colourName').innerHTML = n_name
                 // context.clearRect(x-20, y-20, 40, 40)
             });
         </script>
