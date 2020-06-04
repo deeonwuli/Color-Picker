@@ -38,6 +38,9 @@
             #output {
                 display: none;
             }
+            #continue {
+                display: none;
+            }
         </style>
     </head>
 
@@ -84,11 +87,10 @@
                 <div class="inner">
                     <h3 class="masthead-brand"><img src="logo.png" width=10% height=12%> Color Picker</h3>
                     <nav class="nav nav-masthead justify-content-center">
-                        <a class="nav-link" href="#start" onclick="visibility()">Start</a>
+                        <a class="nav-link" href="#start">Start</a>
                         <a class="nav-link active" href="#">Process</a>
                         <a class="nav-link" href="#">Finish</a>
                     </nav>
-
                 </div>
             </header>
 
@@ -96,7 +98,8 @@
                 <p class="lead">Tap anywhere on your image to find your colour.</p>    
                 <canvas id="theCanvas" class="img-fluid rounded mx-auto d-block"></canvas>
                 <img id="output" class="img-fluid rounded mx-auto d-block">
-                <p class="lead" id="colourName"></p>
+                <br />
+                <button type="button" class="continue btn btn-outline-dark" id="continue" onClick="visibility()">Continue</button>
             </main>
 
             <footer class="mastfoor mt-auto">
@@ -112,6 +115,39 @@
                     <p>Made with <i class="heart fas fa-heart"></i> by <a href="http://chukwudumebi.me" target="blank">Chukwudumebi</a> © 2020</p>
                 </div>
             </footer>
+        </div>
+
+        <div id="finish" class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+            <header class="masthead mb-auto">
+                <div class="inner">
+                    <h3 class="masthead-brand"><img src="logo.png" width=10% height=12%> Color Picker</h3>
+                    <nav class="nav nav-masthead justify-content-center">
+                        <a class="nav-link" href="#start">Start</a>
+                        <a class="nav-link" href="#process">Process</a>
+                        <a class="nav-link active" href="#">Finish</a>
+                    </nav>
+                </div>
+            </header>
+
+            <main role="main" class="inner-cover">
+                <p id="colourBox" style="width: 80px; height: 30px; margin: auto;"></p>
+                <p class="lead" id="colourName"></p>
+                <p class="lead" id="colourHex"></p>
+            </main>
+
+            <footer class="mastfoor mt-auto">
+                <ul>
+                    <li>
+                        <a href="https://twitter.com/deeonwuli" target="_blank"><i class="fa fa-twitter"></i></a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/deeonwuli/Color-Picker" target="_blank"><i class="fa fa-github"></i></a>
+                    </li>
+                </ul>
+                <div class="inner">
+                    <p>Made with <i class="heart fas fa-heart"></i> by <a href="http://chukwudumebi.me" target="blank">Chukwudumebi</a> © 2020</p>
+                </div>
+            </footer>  
         </div>
 
         <script>
@@ -182,8 +218,23 @@
                 let n_name = n_match[1]; // This is the text string for the name of the match
                 let n_exactmatch = n_match[2]; // True if exact color match, False if close-match
                 let name = document.getElementById('colourName').innerHTML = n_name
+                let box = document.getElementById('colourBox').style.backgroundColor = n_rgb
+                let hex = document.getElementById('colourHex').innerHTML = colour
+                document.getElementById('continue').style.display = 'inline'
                 // context.clearRect(x-20, y-20, 40, 40)
-            });
+            }, {once: true});
+        
+            function visibility() {
+                var process = document.getElementById('process')
+                var finish = document.getElementById('finish')
+                if (process.style.display === 'none') {
+                    process.style.display = 'flex'
+                    finish.style.display = 'none'
+                } else {
+                    finish.style.display = 'flex'
+                    process.style.display = 'none'
+                }
+            }
         </script>
     </body>
 </html>
