@@ -63,7 +63,7 @@
                 <p class="lead">Take a picture</p>
                 <label class="upload_button">
                     <i class="fas fa-camera"></i>
-                    <input type="file" accept="image/*" id="pic-upload" onchange="my(event)" capture>
+                    <input type="file" accept="image/*" id="pic-upload" onchange="my(event)">
                 </label>
             </main>
 
@@ -206,8 +206,6 @@
                 let y = (event.clientY - bound.top) * scaleY
                 let picColour = context.getImageData(x, y, 1, 1).data
                 let colour= '#' + ('000000' + rgbToHex(picColour[0], picColour[1], picColour[2])).slice(-6)
-                console.log(colour)
-                console.log(x, y)
                 context.beginPath()
                 context.arc(x, y, 250, 0, 2 * Math.PI)
                 context.lineWidth = 100
