@@ -99,7 +99,7 @@
                 <canvas id="theCanvas" class="img-fluid rounded mx-auto d-block"></canvas>
                 <img id="output" class="img-fluid rounded mx-auto d-block">
                 <br />
-                <button type="button" class="continue btn btn-outline-dark" id="continue" onClick="visibility()">Continue</button>
+                <button type="button" class="continue btn btn-dark" id="continue" onClick="visibility()">Continue</button>
             </main>
 
             <footer class="mastfoor mt-auto">
@@ -172,6 +172,44 @@
                         c.height = img.height
                         context.drawImage(img, 0, 0, c.width, c.height)  
                         console.log(img.width, img.height)
+                    
+                        // to get position of mouse tap and draw a circle on tap
+                        counter = 0
+                        let imageData = context.getImageData(0, 0, img.width, img.height);
+                        c.addEventListener ('click', event => {
+                            counter += 1
+                            let bound = c.getBoundingClientRect()
+                            let scaleX = c.width / bound.width
+                            let scaleY = c.height / bound.height
+                            let x = (event.clientX - bound.left) * scaleX
+                            let y = (event.clientY - bound.top) * scaleY
+                            let picColour = context.getImageData(x, y, 1, 1).data
+                            let colour= '#' + ('000000' + rgbToHex(picColour[0], picColour[1], picColour[2])).slice(-6)
+                            if (counter % 2 != 0) {
+                                context.putImageData(imageData, 0, 0)
+                                context.beginPath()
+                                context.arc(x, y, 250, 0, 2 * Math.PI)
+                                context.lineWidth = 100
+                                context.strokeStyle = colour
+                                context.stroke()
+                            } else if (counter % 2 == 0) {
+                                context.putImageData(imageData, 0, 0)
+                                context.beginPath()
+                                context.arc(x, y, 250, 0, 2 * Math.PI)
+                                context.lineWidth = 100
+                                context.strokeStyle = colour
+                                context.stroke()
+                            }
+                            let n_match = ntc.name(colour);
+                            let n_rgb = n_match[0]; // This is the RGB value of the closest matching color
+                            let n_name = n_match[1]; // This is the text string for the name of the match
+                            let n_exactmatch = n_match[2]; // True if exact color match, False if close-match
+                            let name = document.getElementById('colourName').innerHTML = n_name
+                            let box = document.getElementById('colourBox').style.backgroundColor = n_rgb
+                            let hex = document.getElementById('colourHex').innerHTML = colour
+                            document.getElementById('continue').style.display = 'inline'
+                            // context.clearRect(x-20, y-20, 40, 40)
+                        });
                     }
                 }
                 reader.readAsDataURL(input.files[0])
@@ -188,39 +226,11 @@
                 }
             }
 
-            // to get position of mouse tap and draw a circle on tap
-            let canvas = document.getElementById('theCanvas')
-            let context = canvas.getContext('2d')
-
             function rgbToHex (r, g, b) {
                 if (r > 255 || g > 255 || b > 255)
                     throw "Invalid color component";
                 return ((r << 16) | (g << 8) | b).toString(16)
-            }
-
-            canvas.addEventListener ('click', event => {
-                let bound = canvas.getBoundingClientRect()
-                let scaleX = canvas.width / bound.width
-                let scaleY = canvas.height / bound.height
-                let x = (event.clientX - bound.left) * scaleX
-                let y = (event.clientY - bound.top) * scaleY
-                let picColour = context.getImageData(x, y, 1, 1).data
-                let colour= '#' + ('000000' + rgbToHex(picColour[0], picColour[1], picColour[2])).slice(-6)
-                context.beginPath()
-                context.arc(x, y, 250, 0, 2 * Math.PI)
-                context.lineWidth = 100
-                context.strokeStyle = colour
-                context.stroke()
-                let n_match = ntc.name(colour);
-                let n_rgb = n_match[0]; // This is the RGB value of the closest matching color
-                let n_name = n_match[1]; // This is the text string for the name of the match
-                let n_exactmatch = n_match[2]; // True if exact color match, False if close-match
-                let name = document.getElementById('colourName').innerHTML = n_name
-                let box = document.getElementById('colourBox').style.backgroundColor = n_rgb
-                let hex = document.getElementById('colourHex').innerHTML = colour
-                document.getElementById('continue').style.display = 'inline'
-                // context.clearRect(x-20, y-20, 40, 40)
-            }, {once: true});
+            }    
         
             function visibility() {
                 var process = document.getElementById('process')
