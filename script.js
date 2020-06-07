@@ -39,6 +39,12 @@ function my (event) {
           context.lineWidth = 100
           context.strokeStyle = colour
           context.stroke()
+          context.closePath()
+          context.beginPath()
+          context.arc(x, y, 50, 0, 2 * Math.PI)
+          context.lineWidth = 100
+          context.fillStyle = colour
+          context.fill()
         } else if (counter % 2 === 0) {
           context.putImageData(imageData, 0, 0)
           context.beginPath()
@@ -46,6 +52,12 @@ function my (event) {
           context.lineWidth = 100
           context.strokeStyle = colour
           context.stroke()
+          context.closePath()
+          context.beginPath()
+          context.arc(x, y, 50, 0, 2 * Math.PI)
+          context.lineWidth = 100
+          context.fillStyle = colour
+          context.fill()
         }
         let n_match = ntc.name(colour)
         let n_rgb = n_match[0] // This is the RGB value of the closest matching color
@@ -80,6 +92,12 @@ function my (event) {
             context.lineWidth = 100
             context.strokeStyle = colour
             context.stroke()
+            context.closePath()
+            context.beginPath()
+            context.arc(x, y, 50, 0, 2 * Math.PI)
+            context.lineWidth = 100
+            context.fillStyle = colour
+            context.fill()
           } else if (counter % 2 === 0) {
             context.putImageData(imageData, 0, 0)
             context.beginPath()
@@ -87,6 +105,12 @@ function my (event) {
             context.lineWidth = 100
             context.strokeStyle = colour
             context.stroke()
+            context.closePath()
+            context.beginPath()
+            context.arc(x, y, 50, 0, 2 * Math.PI)
+            context.lineWidth = 100
+            context.fillStyle = colour
+            context.fill()
           }
           let n_match = ntc.name(colour)
           let n_rgb = n_match[0] // This is the RGB value of the closest matching color
@@ -132,13 +156,25 @@ function my (event) {
             context.lineWidth = 100
             context.strokeStyle = colour
             context.stroke()
-          } else if (counter % 2 == 0) {
+            context.closePath()
+            context.beginPath()
+            context.arc(x, y, 50, 0, 2 * Math.PI)
+            context.lineWidth = 100
+            context.fillStyle = colour
+            context.fill()
+          } else if (counter % 2 === 0) {
             context.putImageData(imageData, 0, 0)
             context.beginPath()
             context.arc(x, y, 350, 0, 2 * Math.PI)
             context.lineWidth = 100
             context.strokeStyle = colour
             context.stroke()
+            context.closePath()
+            context.beginPath()
+            context.arc(x, y, 50, 0, 2 * Math.PI)
+            context.lineWidth = 100
+            context.fillStyle = colour
+            context.fill()
           }
           let n_match = ntc.name(colour)
           let n_rgb = n_match[0] // This is the RGB value of the closest matching color
