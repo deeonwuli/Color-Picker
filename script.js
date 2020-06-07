@@ -55,6 +55,10 @@ function my (event) {
         let box = document.getElementById('colourBox').style.backgroundColor = n_rgb
         let hex = document.getElementById('colourHex').innerHTML = colour
         document.getElementById('continue').style.display = 'inline'
+        let str = colour.toString()
+        let res = str.slice(1)
+        let resi = '0X'.concat(res)
+        let rgb = document.getElementById('colourRGB').innerHTML = hexToRGB(resi)
       })
 
       c.addEventListener('mousemove', event => {
@@ -92,6 +96,10 @@ function my (event) {
           let box = document.getElementById('colourBox').style.backgroundColor = n_rgb
           let hex = document.getElementById('colourHex').innerHTML = colour
           document.getElementById('continue').style.display = 'inline'
+          let str = colour.toString()
+          let res = str.slice(1)
+          let resi = '0X'.concat(res)
+          let rgb = document.getElementById('colourRGB').innerHTML = hexToRGB(resi)
         }
       })
 
@@ -140,6 +148,10 @@ function my (event) {
           let box = document.getElementById('colourBox').style.backgroundColor = n_rgb
           let hex = document.getElementById('colourHex').innerHTML = colour
           document.getElementById('continue').style.display = 'inline'
+          let str = colour.toString()
+          let res = str.slice(1)
+          let resi = '0X'.concat(res)
+          let rgb = document.getElementById('colourRGB').innerHTML = hexToRGB(resi)
         }
       })
 
@@ -181,4 +193,11 @@ function visibility () {
     finish.style.display = 'flex'
     process.style.display = 'none'
   }
+}
+
+function hexToRGB (hexColor) {
+  let red = (hexColor >> 16) & 0xFF
+  let green = (hexColor >> 8) & 0xFF
+  let blue = hexColor & 0xFF
+  return ('RGB ( ' + red + ', ' + green + ', ' + blue + ' )')
 }
