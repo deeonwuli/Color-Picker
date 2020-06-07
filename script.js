@@ -71,6 +71,7 @@ function my (event) {
         let res = str.slice(1)
         let resi = '0X'.concat(res)
         let rgb = document.getElementById('colourRGB').innerHTML = hexToRGB(resi)
+        let family = document.getElementById('colourFamily').innerHTML = colourFamily(resi)
       })
 
       c.addEventListener('mousemove', event => {
@@ -124,6 +125,7 @@ function my (event) {
           let res = str.slice(1)
           let resi = '0X'.concat(res)
           let rgb = document.getElementById('colourRGB').innerHTML = hexToRGB(resi)
+          let family = document.getElementById('colourFamily').innerHTML = colourFamily(resi)
         }
       })
 
@@ -188,6 +190,7 @@ function my (event) {
           let res = str.slice(1)
           let resi = '0X'.concat(res)
           let rgb = document.getElementById('colourRGB').innerHTML = hexToRGB(resi)
+          let family = document.getElementById('colourFamily').innerHTML = colourFamily(resi)
         }
       })
 
@@ -236,4 +239,17 @@ function hexToRGB (hexColor) {
   let green = (hexColor >> 8) & 0xFF
   let blue = hexColor & 0xFF
   return ('RGB ( ' + red + ', ' + green + ', ' + blue + ' )')
+}
+
+function colourFamily (hexColor) {
+  let red = (hexColor >> 16) & 0xFF
+  let green = (hexColor >> 8) & 0xFF
+  let blue = hexColor & 0xFF
+  if (red > green && red > blue) {
+    return 'Red'
+  } else if (green > red && green > blue) {
+    return 'Green'
+  } else if (blue > red && blue > green) {
+    return 'Blue'
+  }
 }
