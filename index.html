@@ -211,7 +211,7 @@
                             // context.clearRect(x-20, y-20, 40, 40)
                         })
                     
-                        c.addEventListener ('mousemove', event => {
+                        c.addEventListener ('touchmove', event => {
                             if (isDragging == true) {
                                 counter += 1
                             let bound = c.getBoundingClientRect()
@@ -248,11 +248,11 @@
                             }
                         })
             
-                        c.addEventListener ('mousedown', event => {
+                        c.addEventListener ('touchstart', event => {
                             isDragging = true
                         })
 
-                        c.addEventListener ('onmouseup', event => {
+                        c.addEventListener ('touchend', event => {
                             isDragging = false
                         })
                     }
