@@ -245,11 +245,30 @@ function colourFamily (hexColor) {
   let red = (hexColor >> 16) & 0xFF
   let green = (hexColor >> 8) & 0xFF
   let blue = hexColor & 0xFF
-  if (red > green && red > blue) {
+  if (red >= green && red > blue) {
+    if (red / blue > 1.5 && green / blue > 1.5) {
+      return 'Yellow'
+    } else if (red / green > 1.5 && blue / green > 1.5) {
+      return 'Purple'
+    }
     return 'Red'
-  } else if (green > red && green > blue) {
+  } else if (green >= red && green > blue) {
+    if (red / blue > 1.5 && green / blue > 1.5) {
+      return 'Yellow'
+    } else if (green / red > 1.5 && blue / red > 1.5) {
+      return 'Cyan'
+    }
     return 'Green'
   } else if (blue > red && blue > green) {
+    if (red / green > 1.5 && blue / green > 1.5) {
+      return 'Purple'
+    } else if (green / red > 1.5 && blue / red > 1.5) {
+      return 'Cyan'
+    }
     return 'Blue'
+  } else if (red === 0 && blue === 0 && green === 0) {
+    return 'Black'
+  } else if (red > 225 && blue > 225 && green > 225) {
+    return 'White'
   }
 }
