@@ -65,13 +65,13 @@ function my (event) {
         let n_exactmatch = n_match[2] // True if exact color match, False if close-match
         let name = document.getElementById('colourName').innerHTML = n_name
         let box = document.getElementById('colourBox').style.backgroundColor = n_rgb
-        let hex = document.getElementById('colourHex').innerHTML = colour
+        let hex = document.getElementById('colourHex').innerHTML = 'Hex value: ' + colour
         document.getElementById('continue').style.display = 'inline'
         let str = colour.toString()
         let res = str.slice(1)
         let resi = '0X'.concat(res)
-        let rgb = document.getElementById('colourRGB').innerHTML = hexToRGB(resi)
-        let family = document.getElementById('colourFamily').innerHTML = colourFamily(resi)
+        let rgb = document.getElementById('colourRGB').innerHTML = 'RGB value: ' + hexToRGB(resi)
+        let family = document.getElementById('colourFamily').innerHTML = 'Color family: ' + colourFamily(resi)
       })
 
       c.addEventListener('mousemove', event => {
@@ -119,13 +119,13 @@ function my (event) {
           let n_exactmatch = n_match[2] // True if exact color match, False if close-match
           let name = document.getElementById('colourName').innerHTML = n_name
           let box = document.getElementById('colourBox').style.backgroundColor = n_rgb
-          let hex = document.getElementById('colourHex').innerHTML = colour
+          let hex = document.getElementById('colourHex').innerHTML = 'Hex value: ' + colour
           document.getElementById('continue').style.display = 'inline'
           let str = colour.toString()
           let res = str.slice(1)
           let resi = '0X'.concat(res)
-          let rgb = document.getElementById('colourRGB').innerHTML = hexToRGB(resi)
-          let family = document.getElementById('colourFamily').innerHTML = colourFamily(resi)
+          let rgb = document.getElementById('colourRGB').innerHTML = 'RGB value: ' + hexToRGB(resi)
+          let family = document.getElementById('colourFamily').innerHTML = 'Color family: ' + colourFamily(resi)
         }
       })
 
@@ -184,13 +184,13 @@ function my (event) {
           let n_exactmatch = n_match[2] // True if exact color match, False if close-match
           let name = document.getElementById('colourName').innerHTML = n_name
           let box = document.getElementById('colourBox').style.backgroundColor = n_rgb
-          let hex = document.getElementById('colourHex').innerHTML = colour
+          let hex = document.getElementById('colourHex').innerHTML = 'Hex value: ' + colour
           document.getElementById('continue').style.display = 'inline'
           let str = colour.toString()
           let res = str.slice(1)
           let resi = '0X'.concat(res)
-          let rgb = document.getElementById('colourRGB').innerHTML = hexToRGB(resi)
-          let family = document.getElementById('colourFamily').innerHTML = colourFamily(resi)
+          let rgb = document.getElementById('colourRGB').innerHTML = 'RGB value: ' + hexToRGB(resi)
+          let family = document.getElementById('colourFamily').innerHTML = 'Color family: ' + colourFamily(resi)
         }
       })
 
@@ -233,6 +233,17 @@ function visibility () {
     process.style.display = 'none'
   }
 }
+
+let start = document.getElementById('startLink')
+let process = document.getElementById('process')
+let finish = document.getElementById('finish')
+start.addEventListener('click', event => {
+  if (start.style.display === 'none') {
+    start.style.display = 'flex'
+    process.style.display = 'none'
+    finish.style.display = 'none'
+  }
+})
 
 function hexToRGB (hexColor) {
   let red = (hexColor >> 16) & 0xFF
