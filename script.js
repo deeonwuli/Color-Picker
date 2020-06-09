@@ -296,8 +296,13 @@ function colourFamily (hexColor) {
     return 'Black'
   } else if (red > 225 && blue > 225 && green > 225) {
     return 'White'
-  } else if (red >= green && red > blue) {
+  } else if ((Math.abs (red - green) < 10) && (Math.abs (red -blue) < 10) && (Math.abs (green - blue) < 10) && (40 < red < 225) && (40 < green < 225) && (40 < blue < 225)) {
+    return 'Grey'
+  }else if (red >= green && red > blue) {
     if (red / blue > 1.5 && green / blue > 1.5) {
+      if (red / blue > 3 && red / green > 2) {
+        return 'Orange'
+      }
       return 'Yellow'
     } else if (red / green > 1.5 && blue / green > 1.5) {
       return 'Purple'
@@ -305,12 +310,15 @@ function colourFamily (hexColor) {
     return 'Red'
   } else if (green >= red && green > blue) {
     if (red / blue > 1.5 && green / blue > 1.5) {
+      if (red / blue > 3) {
+        return 'Orange'
+      }
       return 'Yellow'
     } else if (green / red > 1.5 && blue / red > 1.5) {
       return 'Cyan'
     }
     return 'Green'
-  } else if (blue > red && blue > green) {
+  } else if (blue >= red && blue > green) {
     if (red / green > 1.5 && blue / green > 1.5) {
       return 'Purple'
     } else if (green / red > 1.5 && blue / red > 1.5) {
