@@ -236,6 +236,32 @@ function my (event) {
     process.style.display = 'flex'
     start.style.display = 'none'
   }
+  
+  let startLink = document.getElementById('startLink')
+  let startLink1 = document.getElementById('startLink1')
+  let processLink = document.getElementById('processLink')
+  let finish = document.getElementById('finish')
+  startLink.addEventListener('click', event => {
+    if (start.style.display === 'none') {
+      start.style.display = 'flex'
+      process.style.display = 'none'
+      finish.style.display = 'none'
+    }
+  })
+  startLink1.addEventListener('click', event => {
+    if (start.style.display === 'none') {
+      start.style.display = 'flex'
+      process.style.display = 'none'
+      finish.style.display = 'none'
+    }
+  })
+  processLink.addEventListener('click', event => {
+    if (process.style.display === 'none') {
+      process.style.display = 'flex'
+      start.style.display = 'none'
+      finish.style.display = 'none'
+    }
+  })
 }
 
 function rgbToHex (r, g, b) {
@@ -254,17 +280,6 @@ function visibility () {
     process.style.display = 'none'
   }
 }
-
-let start = document.getElementById('startLink')
-let process = document.getElementById('process')
-let finish = document.getElementById('finish')
-start.addEventListener('click', event => {
-  if (start.style.display === 'none') {
-    start.style.display = 'flex'
-    process.style.display = 'none'
-    finish.style.display = 'none'
-  }
-})
 
 function hexToRGB (hexColor) {
   let red = (hexColor >> 16) & 0xFF
