@@ -11,6 +11,35 @@ function my (event) {
     let context = c.getContext('2d')
     let img = new Image()
     img.src = output.src
+
+    let startLink = document.getElementById('startLink')
+    let startLink1 = document.getElementById('startLink1')
+    let processLink = document.getElementById('processLink')
+    let finish = document.getElementById('finish')
+    startLink.addEventListener('click', event => {
+      context.clearRect(0, 0, c.width, c.height)
+      if (start.style.display === 'none') {
+        start.style.display = 'flex'
+        process.style.display = 'none'
+        finish.style.display = 'none'
+      }
+    })
+    startLink1.addEventListener('click', event => {
+      context.clearRect(0, 0, c.width, c.height)
+      if (start.style.display === 'none') {
+        start.style.display = 'flex'
+        process.style.display = 'none'
+        finish.style.display = 'none'
+      }
+    })
+    processLink.addEventListener('click', event => {
+      if (process.style.display === 'none') {
+        process.style.display = 'flex'
+        start.style.display = 'none'
+        finish.style.display = 'none'
+      }
+    })
+
     img.onload = () => {
       c.width = img.width
       c.height = img.height
@@ -32,7 +61,7 @@ function my (event) {
         let y = (event.clientY - bound.top) * scaleY
         let picColour = context.getImageData(x, y, 1, 1).data
         let colour = '#' + ('000000' + rgbToHex(picColour[0], picColour[1], picColour[2])).slice(-6)
-        function radius() {
+        function radius () {
           if (c.width > c.height) {
             return (c.width / c.height) * 0.3
           } else if (c.width < c.height) {
@@ -93,7 +122,7 @@ function my (event) {
           let y = (event.clientY - bound.top) * scaleY
           let picColour = context.getImageData(x, y, 1, 1).data
           let colour = '#' + ('000000' + rgbToHex(picColour[0], picColour[1], picColour[2])).slice(-6)
-          function radius() {
+          function radius () {
             if (c.width > c.height) {
               return (c.width / c.height) * 0.3
             } else if (c.width < c.height) {
@@ -165,7 +194,7 @@ function my (event) {
           let y = (touchObject.clientY - bound.top) * scaleY
           let picColour = context.getImageData(x, y, 1, 1).data
           let colour = '#' + ('000000' + rgbToHex(picColour[0], picColour[1], picColour[2])).slice(-6)
-          function radius() {
+          function radius () {
             if (c.width > c.height) {
               return (c.width / c.height) * 0.3
             } else if (c.width < c.height) {
@@ -236,32 +265,6 @@ function my (event) {
     process.style.display = 'flex'
     start.style.display = 'none'
   }
-  
-  let startLink = document.getElementById('startLink')
-  let startLink1 = document.getElementById('startLink1')
-  let processLink = document.getElementById('processLink')
-  let finish = document.getElementById('finish')
-  startLink.addEventListener('click', event => {
-    if (start.style.display === 'none') {
-      start.style.display = 'flex'
-      process.style.display = 'none'
-      finish.style.display = 'none'
-    }
-  })
-  startLink1.addEventListener('click', event => {
-    if (start.style.display === 'none') {
-      start.style.display = 'flex'
-      process.style.display = 'none'
-      finish.style.display = 'none'
-    }
-  })
-  processLink.addEventListener('click', event => {
-    if (process.style.display === 'none') {
-      process.style.display = 'flex'
-      start.style.display = 'none'
-      finish.style.display = 'none'
-    }
-  })
 }
 
 function rgbToHex (r, g, b) {
@@ -296,9 +299,9 @@ function colourFamily (hexColor) {
     return 'Black'
   } else if (red > 225 && blue > 225 && green > 225) {
     return 'White'
-  } else if ((Math.abs (red - green) < 10) && (Math.abs (red -blue) < 10) && (Math.abs (green - blue) < 10) && (40 < red < 225) && (40 < green < 225) && (40 < blue < 225)) {
+  } else if ((Math.abs(red - green) < 10) && (Math.abs(red - blue) < 10) && (Math.abs(green - blue) < 10) && (red > 40 < 225) && (green > 40 < 225) && (blue > 40 < 225)) {
     return 'Grey'
-  }else if (red >= green && red > blue) {
+  } else if (red >= green && red > blue) {
     if (red / blue > 1.5 && green / blue > 1.5) {
       if (red / blue > 3 && red / green > 2) {
         return 'Orange'
