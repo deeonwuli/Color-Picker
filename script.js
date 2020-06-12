@@ -283,6 +283,9 @@ function colourFamily (hexColor) {
   } else if (red >= green && red > blue) {
     if (red / blue > 1.5 && green / blue > 1.5) {
       if (red / blue > 3 && red / green > 2) {
+        if (red < 150 && blue < 150 && green < 150) {
+          return 'Brown'
+        }
         return 'Orange'
       }
       return 'Yellow'
@@ -293,6 +296,9 @@ function colourFamily (hexColor) {
   } else if (green >= red && green > blue) {
     if (red / blue > 1.5 && green / blue > 1.5) {
       if (red / blue > 3) {
+        if (red < 150 && blue < 150 && green < 150) {
+          return 'Brown'
+        }
         return 'Orange'
       }
       return 'Yellow'
