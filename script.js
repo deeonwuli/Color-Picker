@@ -61,37 +61,30 @@ function my (event) {
         let y = (event.clientY - bound.top) * scaleY
         let picColour = context.getImageData(x, y, 1, 1).data
         let colour = '#' + ('000000' + rgbToHex(picColour[0], picColour[1], picColour[2])).slice(-6)
-        function radius () {
-          if (c.width > c.height) {
-            return (c.width / c.height) * 0.3
-          } else if (c.width < c.height) {
-            return (c.width / c.height) * 0.3
-          } return 1
-        }
         if (counter % 2 !== 0) {
           context.putImageData(imageData, 0, 0)
           context.beginPath()
-          context.arc(x, y, 350 * radius(), 0, 2 * Math.PI)
-          context.lineWidth = 100 * radius()
+          context.arc(x, y, 350, 0, 2 * Math.PI)
+          context.lineWidth = 100
           context.strokeStyle = colour
           context.stroke()
           context.closePath()
           context.beginPath()
-          context.arc(x, y, 50 * radius(), 0, 2 * Math.PI)
-          context.lineWidth = 100 * radius()
+          context.arc(x, y, 50, 0, 2 * Math.PI)
+          context.lineWidth = 100
           context.fillStyle = colour
           context.fill()
         } else if (counter % 2 === 0) {
           context.putImageData(imageData, 0, 0)
           context.beginPath()
-          context.arc(x, y, 350 * radius(), 0, 2 * Math.PI)
-          context.lineWidth = 100 * radius()
+          context.arc(x, y, 350, 0, 2 * Math.PI)
+          context.lineWidth = 100
           context.strokeStyle = colour
           context.stroke()
           context.closePath()
           context.beginPath()
-          context.arc(x, y, 50 * radius(), 0, 2 * Math.PI)
-          context.lineWidth = 100 * radius()
+          context.arc(x, y, 50, 0, 2 * Math.PI)
+          context.lineWidth = 100
           context.fillStyle = colour
           context.fill()
         }
@@ -122,37 +115,30 @@ function my (event) {
           let y = (event.clientY - bound.top) * scaleY
           let picColour = context.getImageData(x, y, 1, 1).data
           let colour = '#' + ('000000' + rgbToHex(picColour[0], picColour[1], picColour[2])).slice(-6)
-          function radius () {
-            if (c.width > c.height) {
-              return (c.width / c.height) * 0.3
-            } else if (c.width < c.height) {
-              return (c.width / c.height) * 0.3
-            } return 1
-          }
           if (counter % 2 !== 0) {
             context.putImageData(imageData, 0, 0)
             context.beginPath()
-            context.arc(x, y, 350 * radius(), 0, 2 * Math.PI)
-            context.lineWidth = 100 * radius()
+            context.arc(x, y, 350, 0, 2 * Math.PI)
+            context.lineWidth = 100
             context.strokeStyle = colour
             context.stroke()
             context.closePath()
             context.beginPath()
-            context.arc(x, y, 50 * radius(), 0, 2 * Math.PI)
-            context.lineWidth = 100 * radius()
+            context.arc(x, y, 50, 0, 2 * Math.PI)
+            context.lineWidth = 100
             context.fillStyle = colour
             context.fill()
           } else if (counter % 2 === 0) {
             context.putImageData(imageData, 0, 0)
             context.beginPath()
-            context.arc(x, y, 350 * radius(), 0, 2 * Math.PI)
-            context.lineWidth = 100 * radius()
+            context.arc(x, y, 350, 0, 2 * Math.PI)
+            context.lineWidth = 100
             context.strokeStyle = colour
             context.stroke()
             context.closePath()
             context.beginPath()
-            context.arc(x, y, 50 * radius(), 0, 2 * Math.PI)
-            context.lineWidth = 100 * radius()
+            context.arc(x, y, 50, 0, 2 * Math.PI)
+            context.lineWidth = 100
             context.fillStyle = colour
             context.fill()
           }
@@ -194,37 +180,30 @@ function my (event) {
           let y = (touchObject.clientY - bound.top) * scaleY
           let picColour = context.getImageData(x, y, 1, 1).data
           let colour = '#' + ('000000' + rgbToHex(picColour[0], picColour[1], picColour[2])).slice(-6)
-          function radius () {
-            if (c.width > c.height) {
-              return (c.width / c.height) * 0.3
-            } else if (c.width < c.height) {
-              return (c.width / c.height) * 0.3
-            } return 1
-          }
           if (counter % 2 !== 0) {
             context.putImageData(imageData, 0, 0)
             context.beginPath()
-            context.arc(x, y, 350 * radius(), 0, 2 * Math.PI)
-            context.lineWidth = 100 * radius()
+            context.arc(x, y, 350, 0, 2 * Math.PI)
+            context.lineWidth = 100
             context.strokeStyle = colour
             context.stroke()
             context.closePath()
             context.beginPath()
-            context.arc(x, y, 50 * radius(), 0, 2 * Math.PI)
-            context.lineWidth = 100 * radius()
+            context.arc(x, y, 50, 0, 2 * Math.PI)
+            context.lineWidth = 100
             context.fillStyle = colour
             context.fill()
           } else if (counter % 2 === 0) {
             context.putImageData(imageData, 0, 0)
             context.beginPath()
-            context.arc(x, y, 350 * radius(), 0, 2 * Math.PI)
-            context.lineWidth = 100 * radius()
+            context.arc(x, y, 350, 0, 2 * Math.PI)
+            context.lineWidth = 100
             context.strokeStyle = colour
             context.stroke()
             context.closePath()
             context.beginPath()
-            context.arc(x, y, 50 * radius(), 0, 2 * Math.PI)
-            context.lineWidth = 100 * radius()
+            context.arc(x, y, 50, 0, 2 * Math.PI)
+            context.lineWidth = 100
             context.fillStyle = colour
             context.fill()
           }
